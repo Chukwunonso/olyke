@@ -1,0 +1,21 @@
+db:
+  image: postgres
+web:
+  build: .
+  #command: python olyke/manage.py migrate
+  # command: python olyke/manage.py collectstatic --noinput
+  #command: python super_user.py 
+  command: python launch_gunicorn.py
+  #command: python olyke/manage.py runserver 0.0.0.0:8000
+  environment:
+    - OLYKE_SECRET
+    - OLYKE_SUPER_PASS
+    - AWS_OLYKE_BUCKET_NAME
+    - AWS_OLYKE_ACCESS_KEY
+    - AWS_OLYKE_SECRET_KEY
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
+  links:
+    - db

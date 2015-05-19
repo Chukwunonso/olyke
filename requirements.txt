@@ -1,0 +1,9 @@
+Django
+psycopg2
+Pillow
+django-widget-tweaks
+django-oscar
+pexpect
+django-storages
+boto
+gunicorn
