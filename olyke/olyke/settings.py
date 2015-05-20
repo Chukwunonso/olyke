@@ -70,11 +70,19 @@ AUTHENTICATION_BACKENDS = (
 
 ROOT_URLCONF = 'olyke.urls'
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
+location = lambda x: os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', x) 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'), OSCAR_MAIN_TEMPLATE_DIR
+            #OSCAR_MAIN_TEMPLATE_DIR
         ],
         'APP_DIRS': True,
         'OPTIONS': {

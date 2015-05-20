@@ -1,4 +1,5 @@
 *.pyc
 .dockerignore
 super_user.py
+.DS_store
 
