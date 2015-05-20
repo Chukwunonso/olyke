@@ -2,11 +2,10 @@ db:
   image: postgres
 web:
   build: .
-  #command: python olyke/manage.py migrate
+  command: python olyke/manage.py migrate
   # command: python olyke/manage.py collectstatic --noinput
-  #command: python super_user.py 
+  command: python super_user.py 
   command: python launch_gunicorn.py
-  #command: python olyke/manage.py runserver 0.0.0.0:8000
   environment:
     - OLYKE_SECRET
     - OLYKE_SUPER_PASS

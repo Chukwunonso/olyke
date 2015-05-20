@@ -154,3 +154,7 @@ MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'olyke.custom_storages.MediaStorage'
 STATIC_ROOT=''
+
+# Oscar-specific settings
+OSCAR_SHOP_NAME = 'Olyke'
+OSCAR_SHOP_TAGLINE = 'Experience Freedom'
