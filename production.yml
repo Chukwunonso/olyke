@@ -8,10 +8,7 @@ db:
 
 web:
   restart: always
-  build: .
-  #command: python olyke/manage.py migrate
-  #command: python olyke/manage.py collectstatic --noinput
-  #command: python super_user.py 
+  build: ./web
   links:
     - db
   environment:
@@ -20,8 +17,6 @@ web:
     - AWS_OLYKE_BUCKET_NAME
     - AWS_OLYKE_ACCESS_KEY
     - AWS_OLYKE_SECRET_KEY
-  volumes:
-    - .:/code
   ports:
     - "8000:8000"
   command: python launch_gunicorn.py
