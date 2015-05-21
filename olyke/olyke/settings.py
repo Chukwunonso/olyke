@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('OLYKE_SECRET', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["46.101.27.213"]
+ALLOWED_HOSTS = ["192.168.99.100", "localhost", "46.101.27.213"]
 
 # Application definition
 from oscar import get_core_apps
