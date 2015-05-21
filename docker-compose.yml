@@ -9,9 +9,6 @@ db:
 web:
   restart: always
   build: ./olyke
-  #command: python olyke/manage.py migrate
-  #command: python olyke/manage.py collectstatic --noinput
-  #command: python super_user.py 
   links:
     - db
   environment:
@@ -24,7 +21,7 @@ web:
     - .:/code
   ports:
     - "8000:8000"
-  command: python launch_gunicorn.py
+  command: /usr/local/bin/gunicorn olyke.wsgi:application -w 2 -b :8000 
 
 nginx:
   restart: always

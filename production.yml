@@ -19,7 +19,7 @@ web:
     - AWS_OLYKE_SECRET_KEY
   ports:
     - "8000:8000"
-  command: python launch_gunicorn.py
+  command: /usr/local/bin/gunicorn olyke.wsgi:application -w 2 -b :8000 
 
 nginx:
   restart: always
