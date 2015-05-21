@@ -8,7 +8,7 @@ db:
 
 web:
   restart: always
-  build: ./web
+  build: ./olyke
   links:
     - db
   environment:

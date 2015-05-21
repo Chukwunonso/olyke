@@ -8,7 +8,7 @@ db:
 
 web:
   restart: always
-  build: .
+  build: ./olyke
   #command: python olyke/manage.py migrate
   #command: python olyke/manage.py collectstatic --noinput
   #command: python super_user.py 
