@@ -5,4 +5,4 @@ on project path.
 
 import os
 
-os.system("gunicorn olyke.wsgi:application -w 2 -b :8000")
+os.system("cd olyke && gunicorn olyke.wsgi:application -w 2 -b :8000")

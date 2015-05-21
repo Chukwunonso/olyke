@@ -8,7 +8,7 @@ db:
 
 web:
   restart: always
-  build: ./olyke
+  build: .
   links:
     - db
   environment:
@@ -17,11 +17,9 @@ web:
     - AWS_OLYKE_BUCKET_NAME
     - AWS_OLYKE_ACCESS_KEY
     - AWS_OLYKE_SECRET_KEY
-  volumes:
-    - .:/code
   ports:
     - "8000:8000"
-  command: /usr/local/bin/gunicorn olyke.wsgi:application -w 2 -b :8000 
+  command: python launch_gunicorn.py 
 
 nginx:
   restart: always

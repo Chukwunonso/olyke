@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('OLYKE_SECRET', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["46.101.27.213"]
 
 # Application definition
 from oscar import get_core_apps
@@ -149,6 +149,11 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'olyke.custom_storages.StaticStorage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder"
+)
 
 MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
@@ -158,3 +163,7 @@ STATIC_ROOT=''
 # Oscar-specific settings
 OSCAR_SHOP_NAME = 'Olyke'
 OSCAR_SHOP_TAGLINE = 'Experience Freedom'
+
+# Compress Settings
+COMPRESS_OUTPUT_DIR = ''
+COMPRESS_ENABLED = False
